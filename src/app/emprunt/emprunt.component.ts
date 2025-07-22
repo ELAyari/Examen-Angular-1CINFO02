@@ -26,7 +26,17 @@ export class EmpruntComponent implements OnInit {
       Nom: ['', [Validators.required]],
       DateE: ['', Validators.required],
       DateR: ['', Validators.required],
-    });
+    }, { validators: this.dateRetourAfterDateEmprunt });
+  }
+
+  // Custom validator to check if DateR >= DateE
+  dateRetourAfterDateEmprunt(group: FormGroup) {
+    const dateE = group.get('DateE')?.value;
+    const dateR = group.get('DateR')?.value;
+    if (dateE && dateR) {
+      return new Date(dateR) >= new Date(dateE) ? null : { dateInvalid: true };
+    }
+    return null;
   }
 
   ngOnInit(): void {

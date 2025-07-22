@@ -34,5 +34,9 @@
     </div>
   </div>
 
+  <div *ngIf="empruntForm.errors?.['dateInvalid'] && (empruntForm.get('DateR')?.touched || empruntForm.get('DateE')?.touched)">
+    <small>La date de retour doit être postérieure ou égale à la date d'emprunt.</small>
+  </div>
+
   <button type="submit" [disabled]="empruntForm.invalid">Valider</button>
 </form>
