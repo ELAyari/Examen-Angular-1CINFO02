@@ -1,27 +1,63 @@
-# Exam3
+# How to Use the Library Management Angular Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+This Angular 16 application allows a librarian to manage books, authors, and loans (emprunts) with a simulated backend using json-server.
 
-## Development server
+## Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Ensure you have Node.js and Angular CLI installed.
+2. Run `npm install` to install dependencies.
+3. Start the json-server backend:
+   ```
+   npx json-server --watch db.json --port 3000
+   ```
+4. Start the Angular development server:
+   ```
+   ng serve
+   ```
+5. Open your browser at `http://localhost:4200`.
 
-## Code scaffolding
+## Application Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Navigation Bar
 
-## Build
+- Links to:
+  - Liste des livres (List of available books)
+  - Liste des auteurs (List of authors)
+  - Emprunter un livre (Borrow a book)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Home Page
 
-## Running unit tests
+- Displays a welcome message.
+- Shows statistics: number of books and authors.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Liste des livres
 
-## Running end-to-end tests
+- Displays all available books.
+- Shows title, author, and year.
+- "Emprunter" button to borrow a book.
+- The button is disabled for unavailable books.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Emprunter un livre
 
-## Further help
+- Borrowing form with fields:
+  - Prenom (First name)
+  - Nom (Last name)
+  - Date Emprunt (Borrow date)
+  - Date Retour (Return date)
+- The form validates required fields and date logic.
+- On submission:
+  - Adds the loan to the backend.
+  - Updates the book's availability to unavailable.
+  - Redirects to the list of books.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Notes
+
+- The UpdateEmpruntComponent (modifying return date) is not implemented as per instructions.
+- The backend is simulated with json-server using `db.json`.
+
+## Testing
+
+- Verify navigation links work correctly.
+- Verify only available books are shown in the list.
+- Verify borrowing a book disables the "Emprunter" button for that book.
+- Verify the borrowing form validates inputs and updates the backend correctly.

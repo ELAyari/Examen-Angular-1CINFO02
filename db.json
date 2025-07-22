@@ -1,0 +1,54 @@
+{
+  "auteurs": [
+    {
+      "id": "1",
+      "nom": "Victor Hugo",
+      "nationalite": "Française"
+    },
+    {
+      "id": "2",
+      "nom": "Jane Austen",
+      "nationalite": "Anglaise"
+    }
+  ],
+  "livres": [
+    {
+      "id": "1",
+      "titre": "Les Misérables",
+      "annee": 1862,
+      "auteur": {
+        "id": "1",
+        "nom": "Victor Hugo",
+        "nationalite": "Française"
+      },
+      "disponible": true
+    },
+    {
+      "id": "2",
+      "titre": "Orgueil et Préjugés",
+      "annee": 1813,
+      "auteur": {
+        "id": "2",
+        "nom": "Jane Austen",
+        "nationalite": "Anglaise"
+      },
+      "disponible": true
+    }
+  ],
+  "emprunts": [
+    {
+      "id": "9b9d",
+      "Prenom": "hello",
+      "Nom": "me",
+      "DateE": "2025-07-10",
+      "DateR": "2025-07-04"
+    },
+    {
+      "id": "4ac0",
+      "Prenom": "nasri",
+      "Nom": "Ayari",
+      "DateE": "2025-07-10",
+      "DateR": "2025-07-09"
+    }
+  ]
+}

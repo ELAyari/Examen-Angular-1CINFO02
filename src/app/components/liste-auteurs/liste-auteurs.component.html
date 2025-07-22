@@ -1,0 +1,15 @@
+<h2>Liste des auteurs</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Nationalite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let auteur of Auteurs">
+      <td>{{ auteur.nom }}</td>
+      <td>{{ auteur.nationalite }}</td>
+    </tr>
+  </tbody>
+</table>

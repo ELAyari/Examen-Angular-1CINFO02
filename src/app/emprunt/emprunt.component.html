@@ -1,0 +1,38 @@
+<h1>Emprunter un livre</h1>
+<h2>Ajouter un véhicule</h2>
+<form [formGroup]="empruntForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="Prenom">Prenom:</label>
+    <input id="Prenom" formControlName="Prenom" />
+    <div *ngIf="empruntForm.get('Prenom')?.invalid && empruntForm.get('Prenom')?.touched">
+      <small *ngIf="empruntForm.get('Prenom')?.errors?.['required']">Le Prenom est obligatoire.</small>
+      <small *ngIf="empruntForm.get('Prenom')?.errors?.['pattern']">Le Prenom doit commencer par une majuscule.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="Nom">Nom:</label>
+    <input id="Nom" formControlName="Nom" />
+    <div *ngIf="empruntForm.get('Nom')?.invalid && empruntForm.get('Nom')?.touched">
+      <small *ngIf="empruntForm.get('Nom')?.errors?.['required']">La Nom est obligatoire.</small>
+      <small *ngIf="empruntForm.get('Nom')?.errors?.['minlength']">La Nom doit contenir au moins 3 caractères.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="DateE">Date Emprunt:</label>
+    <input type="date" id="DateE" formControlName="DateE" />
+    <div *ngIf="empruntForm.get('DateE')?.invalid && empruntForm.get('DateE')?.touched">
+      <small>La Date emprunt est obligatoire.</small>
+    </div>
+  </div>
+  <div>
+    <label for="DateR">Date de Retour:</label>
+    <input type="date" id="DateE" formControlName="DateR" />
+    <div *ngIf="empruntForm.get('DateR')?.invalid && empruntForm.get('DateR')?.touched">
+      <small>La Date Retour est obligatoire.</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="empruntForm.invalid">Valider</button>
+</form>
